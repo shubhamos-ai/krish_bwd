@@ -139,7 +139,7 @@ class ChatBot {
         try {
             // Safe evaluation of math expression
             const result = Function('"use strict"; return (' + cleanMessage + ')')();
-            return `🎯 ${cleanMessage} = ${result}`;
+            return '🎯 ' + cleanMessage + ' = ' + result;
         } catch (error) {
             return "Oops! That doesn't look like a valid equation. Try something like '10 + 11 - 15' 📊";
         }
@@ -184,18 +184,13 @@ class ChatBot {
         
         // Help command
         if (lowerMessage.includes('help') || lowerMessage.includes('commands')) {
-            return `Here are some things I can help you with:
-📚 Say "search [anything]" to search Wikipedia
-😄 Say "tell me a joke" for a laugh
-🕐 Ask "what's the time" for current time
-🎲 Say "tell me a fact" for random facts
-💬 Just chat with me about anything!`;
+            return 'Here are some things I can help you with:\n📚 Say "search [anything]" to search Wikipedia\n😄 Say "tell me a joke" for a laugh\n🕐 Ask "what\'s the time" for current time\n🎲 Say "tell me a fact" for random facts\n💬 Just chat with me about anything!';
         }
         
         // Time command
         if (lowerMessage.includes('time') || lowerMessage.includes('date')) {
             const now = new Date();
-            return `🕐 The current time is ${now.toLocaleTimeString()} on ${now.toLocaleDateString()}`;
+            return '🕐 The current time is ' + now.toLocaleTimeString() + ' on ' + now.toLocaleDateString();
         }
         
         // Joke command
@@ -224,7 +219,7 @@ class ChatBot {
         setTimeout(() => {
             this.openWikipedia(searchTerm);
             // Update loading message
-            loadingMsg.innerHTML = `<p>📚 Found Wikipedia results for "${searchTerm}"!</p>`;
+            loadingMsg.innerHTML = '<p>📚 Found Wikipedia results for "' + searchTerm + '"!</p>';
             loadingMsg.classList.remove('typing');
         }, 1500);
     }
@@ -245,7 +240,7 @@ class ChatBot {
     
     addMessage(text, sender) {
         const messageDiv = document.createElement('div');
-        messageDiv.className = `msg ${sender}`;
+        messageDiv.className = 'msg ' + sender;
         
         const paragraph = document.createElement('p');
         paragraph.textContent = text;
@@ -335,11 +330,11 @@ class ChatBot {
         // Add new background image
         setTimeout(() => {
             const bgDiv = document.createElement('div');
-            bgDiv.className = `ai-bg ai-bg-${aiType}`;
+            bgDiv.className = 'ai-bg ai-bg-' + aiType;
             
             // Use absolute URL for Vercel compatibility
-            const imageUrl = `https://krish-bwd.vercel.app/images/${aiType}.png`;
-            bgDiv.style.background = `url('${imageUrl}') no-repeat right center`;
+            const imageUrl = 'https://krish-bwd.vercel.app/images/' + aiType + '.png';
+            bgDiv.style.background = 'url(\'' + imageUrl + '\') no-repeat right center';
             bgDiv.style.backgroundSize = 'cover';
             
             document.body.appendChild(bgDiv);
