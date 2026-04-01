@@ -337,9 +337,9 @@ class ChatBot {
             const bgDiv = document.createElement('div');
             bgDiv.className = `ai-bg ai-bg-${aiType}`;
             
-            // Use absolute path for Vercel compatibility
-            const imagePath = `/images/${aiType}.png`;
-            bgDiv.style.background = `url('${imagePath}') no-repeat right center`;
+            // Use absolute URL for Vercel compatibility
+            const imageUrl = `https://krish-bwd.vercel.app/images/${aiType}.png`;
+            bgDiv.style.background = `url('${imageUrl}') no-repeat right center`;
             bgDiv.style.backgroundSize = 'cover';
             
             document.body.appendChild(bgDiv);
