@@ -305,12 +305,13 @@ class ChatBot {
         this.aiSelection.style.display = 'block';
         this.chatContainer.style.display = 'none';
         
-        // Remove background image when going back to selection
+        // Remove background image and body class when going back to selection
         const existingBg = document.querySelector('.ai-bg');
         if (existingBg) {
             existingBg.classList.add('fade-out');
             setTimeout(() => existingBg.remove(), 500);
         }
+        document.body.className = '';
     }
     
     switchAI(aiType) {
@@ -332,12 +333,10 @@ class ChatBot {
             const bgDiv = document.createElement('div');
             bgDiv.className = 'ai-bg ai-bg-' + aiType;
             
-            // Use absolute URL for Vercel compatibility
-            const imageUrl = 'https://krish-bwd.vercel.app/images/' + aiType + '.png';
-            bgDiv.style.background = 'url(\'' + imageUrl + '\') no-repeat right center';
-            bgDiv.style.backgroundSize = 'cover';
-            
             document.body.appendChild(bgDiv);
+            
+            // Add body class for CSS background loading
+            document.body.className = aiType + '-bg';
         }, 600);
         
         // Update UI based on AI type

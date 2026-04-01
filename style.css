@@ -8,7 +8,7 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .bg-gradient {
@@ -36,74 +36,6 @@ body {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.35);
-}
-
-/* AI Background Images */
-.ai-bg-calculator {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://krish-bwd.vercel.app/images/calculator.png') no-repeat right center;
-  background-size: cover;
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
-  z-index: -1;
-  animation: slideInFromRight 1s ease-out;
-}
-
-.ai-bg-food {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://krish-bwd.vercel.app/images/food.png') no-repeat right center;
-  background-size: cover;
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
-  z-index: -1;
-  animation: slideInFromRight 1s ease-out;
-}
-
-.ai-bg-normal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://krish-bwd.vercel.app/images/wikipedia.png') no-repeat right center;
-  background-size: cover;
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
-  z-index: -1;
-  animation: slideInFromRight 1s ease-out;
-}
-
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Fade out animation */
-.fade-out {
-  animation: fadeOut 0.5s ease-out forwards;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }
 
 .main-container {
@@ -139,6 +71,12 @@ body {
   overflow: hidden;
   margin: 0 auto;
   max-width: 350px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .ai-card::before {
@@ -161,10 +99,6 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   border-color: rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.15);
-}
-
-.ai-card:active {
-  transform: translateY(-5px) scale(1.02);
 }
 
 .ai-card .card-body {
@@ -206,6 +140,11 @@ body {
   display: flex;
   flex-direction: column;
   animation: slideIn 0.5s ease-out;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
 }
 
 @keyframes slideIn {
@@ -223,6 +162,7 @@ body {
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
   font-size: 18px;
   font-weight: 600;
@@ -237,6 +177,7 @@ body {
   overflow-y: auto;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .chat-body::-webkit-scrollbar {
@@ -312,6 +253,7 @@ body {
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0 0 20px 20px;
 }
@@ -376,43 +318,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Modal Styles */
-.modal-content {
-  border: none;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.modal-header {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  color: white;
-  border-radius: 15px 15px 0 0;
-  border: none;
-}
-
-.modal-body {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-}
-
-.modal-footer {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 0 0 15px 15px;
-  border: none;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
-}
-
 /* AI-specific input colors */
 .calculator-mode {
   color: #28a745 !important;
@@ -450,6 +355,7 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -476,6 +382,7 @@ body {
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
   border-radius: 20px 20px 0 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -517,14 +424,15 @@ body {
   width: 100%;
   height: 100%;
   border: none;
+  border-radius: 10px;
 }
 
 .wikipedia-footer {
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 0 0 20px 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   gap: 10px;
   align-items: center;
@@ -582,6 +490,48 @@ body {
 .wikipedia-footer .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
+}
+
+/* AI Background Images - SIMPLIFIED */
+.ai-bg-calculator,
+.ai-bg-food,
+.ai-bg-normal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  z-index: -1;
+  animation: slideInFromRight 1s ease-out;
+}
+
+/* Load background images with JavaScript for better control */
+body.calculator-bg .ai-bg-calculator {
+  background-image: url('https://krish-bwd.vercel.app/images/calculator.png');
+}
+
+body.food-bg .ai-bg-food {
+  background-image: url('https://krish-bwd.vercel.app/images/food.png');
+}
+
+body.normal-bg .ai-bg-normal {
+  background-image: url('https://krish-bwd.vercel.app/images/wikipedia.png');
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Responsive Design */
