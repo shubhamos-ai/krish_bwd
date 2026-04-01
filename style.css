@@ -492,47 +492,39 @@ body {
   transform: translateY(-2px);
 }
 
-/* AI Background Images */
-.ai-bg-calculator,
-.ai-bg-food,
-.ai-bg-normal {
+/* AI Background Images — always present, toggled via .active */
+.ai-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: right center;
+  background-position: center;
   background-repeat: no-repeat;
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  transform: scale(1.05); /* prevents blurred edges from showing */
   z-index: -1;
   pointer-events: none;
-  animation: slideInFromRight 1s ease-out;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
-/* Load background images using relative paths */
-body.calculator-bg .ai-bg-calculator {
+.ai-bg.active {
+  opacity: 1;
+}
+
+.ai-bg-calculator {
   background-image: url('./images/calculator.png');
 }
 
-body.food-bg .ai-bg-food {
+.ai-bg-food {
   background-image: url('./images/food.png');
 }
 
-body.normal-bg .ai-bg-normal {
+.ai-bg-normal {
   background-image: url('./images/wikipedia.png');
-}
-
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 /* Responsive Design */
