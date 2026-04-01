@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Assistant Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-gradient">
+    <div class="main-container">
+      <!-- AI Selection Cards -->
+      <div class="ai-selection" id="ai-selection">
+        <div class="text-center mb-5">
+          <h1 class="text-white display-4 fw-bold">
+            <i class="fas fa-brain me-3"></i>Choose Your AI Assistant
+          </h1>
+          <p class="text-white-50 lead">Select the perfect AI for your needs</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-4 col-md-6">
+            <div class="ai-card glass-card h-100" data-ai="calculator">
+              <div class="card-body text-center">
+                <i class="fas fa-calculator fa-4x mb-3 text-primary"></i>
+                <h4 class="text-white">Calculator AI</h4>
+                <p class="text-white-50">Solve math equations instantly</p>
+                <div class="features">
+                  <small class="text-white-75">• Math expressions<br>• Instant results<br>• Error handling</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="ai-card glass-card h-100" data-ai="food">
+              <div class="card-body text-center">
+                <i class="fas fa-utensils fa-4x mb-3 text-success"></i>
+                <h4 class="text-white">Food AI</h4>
+                <p class="text-white-50">Get random food suggestions</p>
+                <div class="features">
+                  <small class="text-white-75">• Food recommendations<br>• Random suggestions<br>• Culinary ideas</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="ai-card glass-card h-100" data-ai="normal">
+              <div class="card-body text-center">
+                <i class="fas fa-search fa-4x mb-3 text-info"></i>
+                <h4 class="text-white">Master Search AI</h4>
+                <p class="text-white-50">Search Wikipedia & answer questions</p>
+                <div class="features">
+                  <small class="text-white-75">• Wikipedia search<br>• Smart responses<br>• Knowledge base</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Interface (Hidden by default) -->
+      <div class="chat-container glass-card" id="chat-container" style="display: none;">
+        <div class="title d-flex justify-content-between align-items-center">
+          <span id="ai-title"><i class="fas fa-robot me-2"></i>AI Assistant</span>
+          <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-outline-light" id="back-btn">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-light" id="clear-chat">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+        <div class="chat-body" id="chat-body">
+          <div class="msg bot">
+            <p>Hello! I'm your AI assistant. Try asking me to "search wikipedia cats", "tell me a joke", "what's the time", or "help" for more options!</p>
+          </div>
+        </div>
+        <div class="chat-footer">
+          <div class="input-group">
+            <input type="text" id="user-input" class="form-control" placeholder="Type a message..." />
+            <button class="btn btn-primary" id="send-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wikipedia Search Div -->
+  <div class="wikipedia-container" id="wikipedia-container" style="display: none;">
+    <div class="wikipedia-content glass-card">
+      <div class="wikipedia-header">
+        <h5 class="wikipedia-title">
+          <i class="fab fa-wikipedia-w me-2"></i>Wikipedia Search
+        </h5>
+        <button class="btn-close-wiki" id="close-wikipedia">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="wikipedia-body">
+        <iframe id="wikipedia-iframe" src=""></iframe>
+      </div>
+      <div class="wikipedia-footer">
+        <input type="text" id="wikipedia-search" class="form-control" placeholder="Search Wikipedia...">
+        <button class="btn btn-primary" id="search-wikipedia">
+          <i class="fas fa-search"></i> Search
+        </button>
+        <button class="btn btn-secondary" id="close-wikipedia-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
