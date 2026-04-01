@@ -492,7 +492,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* AI Background Images - SIMPLIFIED */
+/* AI Background Images */
 .ai-bg-calculator,
 .ai-bg-food,
 .ai-bg-normal {
@@ -507,20 +507,21 @@ body {
   filter: blur(3px);
   -webkit-filter: blur(3px);
   z-index: -1;
+  pointer-events: none;
   animation: slideInFromRight 1s ease-out;
 }
 
-/* Load background images with JavaScript for better control */
+/* Load background images using relative paths */
 body.calculator-bg .ai-bg-calculator {
-  background-image: url('https://krish-bwd.vercel.app/images/calculator.png');
+  background-image: url('./images/calculator.png');
 }
 
 body.food-bg .ai-bg-food {
-  background-image: url('https://krish-bwd.vercel.app/images/food.png');
+  background-image: url('./images/food.png');
 }
 
 body.normal-bg .ai-bg-normal {
-  background-image: url('https://krish-bwd.vercel.app/images/wikipedia.png');
+  background-image: url('./images/wikipedia.png');
 }
 
 @keyframes slideInFromRight {

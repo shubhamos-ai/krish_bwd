@@ -13,7 +13,7 @@ class ChatBot {
         this.wikipediaIframe = document.getElementById('wikipedia-iframe');
         this.wikipediaSearch = document.getElementById('wikipedia-search');
         this.searchWikipediaBtn = document.getElementById('search-wikipedia');
-        this.closeWikipediaBtn = document.getElementById('close-wikipedia');
+        this.closeWikipediaBtn = document.getElementById('close-wikipedia-btn');
         this.closeWikipediaX = document.getElementById('close-wikipedia');
         
         this.jokes = [
@@ -311,7 +311,7 @@ class ChatBot {
             existingBg.classList.add('fade-out');
             setTimeout(() => existingBg.remove(), 500);
         }
-        document.body.className = '';
+        document.body.classList.remove('calculator-bg', 'food-bg', 'normal-bg');
     }
     
     switchAI(aiType) {
@@ -332,11 +332,11 @@ class ChatBot {
         setTimeout(() => {
             const bgDiv = document.createElement('div');
             bgDiv.className = 'ai-bg ai-bg-' + aiType;
-            
             document.body.appendChild(bgDiv);
             
-            // Add body class for CSS background loading
-            document.body.className = aiType + '-bg';
+            // Add body class for CSS background loading (use classList to preserve other classes)
+            document.body.classList.remove('calculator-bg', 'food-bg', 'normal-bg');
+            document.body.classList.add(aiType + '-bg');
         }, 600);
         
         // Update UI based on AI type
