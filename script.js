@@ -309,14 +309,41 @@ class ChatBot {
     showAISelection() {
         this.aiSelection.style.display = 'block';
         this.chatContainer.style.display = 'none';
+        
+        // Remove background image when going back to selection
+        const existingBg = document.querySelector('.ai-bg');
+        if (existingBg) {
+            existingBg.classList.add('fade-out');
+            setTimeout(() => existingBg.remove(), 500);
+        }
     }
     
     switchAI(aiType) {
         this.currentAI = aiType;
         
+        // Remove existing background
+        const existingBg = document.querySelector('.ai-bg');
+        if (existingBg) {
+            existingBg.classList.add('fade-out');
+            setTimeout(() => existingBg.remove(), 500);
+        }
+        
         // Hide selection and show chat
         this.aiSelection.style.display = 'none';
         this.chatContainer.style.display = 'flex';
+        
+        // Add new background image
+        setTimeout(() => {
+            const bgDiv = document.createElement('div');
+            bgDiv.className = `ai-bg ai-bg-${aiType}`;
+            
+            // Set background with fallback path
+            const imagePath = `images/${aiType}.png`;
+            bgDiv.style.background = `url('${imagePath}') no-repeat right center`;
+            bgDiv.style.backgroundSize = 'cover';
+            
+            document.body.appendChild(bgDiv);
+        }, 600);
         
         // Update UI based on AI type
         switch(aiType) {
@@ -368,3 +395,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 100);
 });
+
+
