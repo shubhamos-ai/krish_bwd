@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test - AI Assistant Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-gradient">
+    <div class="main-container">
+      <h1 class="text-white text-center">CSS LOADING TEST</h1>
+      <div id="test-output"></div>
+    </div>
+  </div>
+
+  <script>
+    console.log('Test page loaded');
+    
+    // Test CSS loading
+    setTimeout(() => {
+      const testOutput = document.getElementById('test-output');
+      const styles = getComputedStyle(document.body);
+      
+      testOutput.innerHTML = `
+        <h3>CSS Test Results:</h3>
+        <p><strong>Background:</strong> ${styles.background}</p>
+        <p><strong>Backdrop Filter:</strong> ${styles.backdropFilter}</p>
+        <p><strong>Body Classes:</strong> ${document.body.className}</p>
+      `;
+      
+      // Test background image loading
+      const bgDiv = document.createElement('div');
+      bgDiv.className = 'ai-bg ai-bg-calculator';
+      document.body.appendChild(bgDiv);
+      document.body.className = 'calculator-bg';
+      
+      setTimeout(() => {
+        testOutput.innerHTML += '<p><strong>Background after adding:</strong> ' + getComputedStyle(document.querySelector('.ai-bg-calculator')).background + '</p>';
+        testOutput.innerHTML += '<p><strong>✅ CSS is working!</strong></p>';
+      }, 2000);
+      
+    }, 1000);
+  </script>
+</body>
+</html>
